@@ -150,28 +150,25 @@ def main():
         st.write("Thank you for exploring our funnel!")
 
     # Additional content for a longer code
-    st.markdown("<h2 class='additional-content'>Additional Content</h2>", unsafe_allow_html=True)
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...")
+    st.markdown("<h2 class='additional-content'>Real Features Section</h2>", unsafe_allow_html=True)
+    st.write("This section provides real features and information about our products and services.")
+    
+    # Feature 1
+    st.markdown("<h3>Feature 1: Interactive Demo</h3>", unsafe_allow_html=True)
+    st.write("Experience our product through an interactive demo. Click the button below.")
+    if st.button("Try Demo"):
+        st.write("Launching interactive demo...")
 
-    # More buttons or interactive elements
-    if st.button("Learn More"):
-        st.write("You clicked 'Learn More'!")
+    # Feature 2
+    st.markdown("<h3>Feature 2: Customer Testimonials</h3>", unsafe_allow_html=True)
+    st.write("Read what our customers have to say about our products and services.")
+    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
 
-    # More styling and HTML elements
-    st.markdown("<div class='additional-content'>More information goes here.</div>", unsafe_allow_html=True)
-
-    # More complex logic or functionality
-    current_time = datetime.now().strftime("%H:%M:%S")
-    st.markdown(f"<p class='additional-content'>The current time is: {current_time}</p>", unsafe_allow_html=True)
-
-    # Longer section with additional information
-    st.markdown("<h2 class='additional-content'>Extended Information Section</h2>", unsafe_allow_html=True)
-    st.write("This section provides more detailed information about our products and services.")
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...")
-
-    # Even more content to meet the line count
-    for i in range(20):
-        st.write(f"Additional content line {i + 1}")
+    # Feature 3
+    st.markdown("<h3>Feature 3: Limited-Time Offer</h3>", unsafe_allow_html=True)
+    st.write("Take advantage of our limited-time offer. Click the button to learn more.")
+    if st.button("View Offer"):
+        st.write("Exploring limited-time offer details...")
 
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('<div class="clear"></div>', unsafe_allow_html=True)
