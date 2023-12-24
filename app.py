@@ -136,6 +136,30 @@ def main():
         st.title("Confirmation")
         st.write("Thank you for exploring our funnel!")
 
+    # Additional content for a longer code
+    st.markdown("<h2>Additional Content</h2>", unsafe_allow_html=True)
+    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...")
+
+    # More buttons or interactive elements
+    if st.button("Learn More"):
+        st.write("You clicked 'Learn More'!")
+
+    # More styling and HTML elements
+    st.markdown("<div style='background-color: #ddd; padding: 10px;'>More information goes here.</div>", unsafe_allow_html=True)
+
+    # More complex logic or functionality
+    current_time = datetime.now().strftime("%H:%M:%S")
+    st.markdown(f"<p>The current time is: {current_time}</p>", unsafe_allow_html=True)
+
+    # Longer section with additional information
+    st.markdown("<h2>Extended Information Section</h2>", unsafe_allow_html=True)
+    st.write("This section provides more detailed information about our products and services.")
+    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...")
+
+    # Even more content to meet the line count
+    for i in range(10):
+        st.write(f"Additional content line {i + 1}")
+
     # Close the container
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -146,3 +170,4 @@ def validate_email(email):
 # Run the app
 if __name__ == "__main__":
     main()
+
