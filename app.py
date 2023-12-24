@@ -86,6 +86,7 @@ def main():
         )
 
         for product_key, product_info in products.items():
+            st.markdown('<div class="product-card">', unsafe_allow_html=True)
             st.markdown(f"<h2>{product_info['name']}</h2>", unsafe_allow_html=True)
             st.markdown(f"<p>{product_info['description']}</p>", unsafe_allow_html=True)
 
@@ -93,45 +94,24 @@ def main():
                 st.session_state.selected_product = product_key
                 st.session_state.step += 1
 
+            st.markdown('</div>', unsafe_allow_html=True)
+
     elif st.session_state.step == 2:
         product_info = products[st.session_state.selected_product]
 
-        st.title(f"Selected {product_info['name']}")
+        st.title(f"{product_info['name']}")
         st.write(product_info["description"])
 
-        st.markdown("<p>This is an additional page of information for the selected product.</p>")
+        st.markdown("<p>This is a clean landing page for the selected product.</p>")
+        st.markdown("<p>Click the button below to confirm your choice:</p>")
 
         # A button to go to the next page
-        if st.button("Next Page"):
+        if st.button("Confirm Your Choice"):
             st.session_state.step += 1
 
     elif st.session_state.step == 3:
         st.title("Confirmation")
         st.write("Thank you for exploring our funnel!")
-
-    # Additional content for a longer code
-    st.markdown("<h2>Additional Content</h2>", unsafe_allow_html=True)
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...")
-
-    # More buttons or interactive elements
-    if st.button("Learn More"):
-        st.write("You clicked 'Learn More'!")
-
-    # More styling and HTML elements
-    st.markdown("<div style='background-color: #ddd; padding: 10px;'>More information goes here.</div>", unsafe_allow_html=True)
-
-    # More complex logic or functionality
-    current_time = datetime.now().strftime("%H:%M:%S")
-    st.markdown(f"<p>The current time is: {current_time}</p>", unsafe_allow_html=True)
-
-    # Longer section with additional information
-    st.markdown("<h2>Extended Information Section</h2>", unsafe_allow_html=True)
-    st.write("This section provides more detailed information about our products and services.")
-    st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...")
-
-    # Even more content to meet the line count
-    for i in range(10):
-        st.write(f"Additional content line {i + 1}")
 
     # Close the container
     st.markdown("</div>", unsafe_allow_html=True)
@@ -139,3 +119,4 @@ def main():
 # Run the app
 if __name__ == "__main__":
     main()
+
