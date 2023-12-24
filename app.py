@@ -91,7 +91,7 @@ def main():
 
             if st.button(product_info['cta'], key=product_key):
                 st.session_state.selected_product = product_key
-                st.session_state.step = 2
+                st.session_state.step += 1
 
     elif st.session_state.step == 2:
         product_info = products[st.session_state.selected_product]
@@ -99,38 +99,11 @@ def main():
         st.title(f"Selected {product_info['name']}")
         st.write(product_info["description"])
 
-        if st.session_state.selected_product == "lead_magnet":
-            st.markdown(
-                "<p>Enter your email to receive access to the free webinar:</p>",
-                unsafe_allow_html=True,
-            )
-            email = st.text_input("Email:")
-            if st.button("Get Access"):
-                if validate_email(email):
-                    st.success(f"Thank you! You will receive access to the webinar at {email}.")
-                    st.session_state.step = 3
-                else:
-                    st.warning("Please enter a valid email address.")
+        st.markdown("<p>This is an additional page of information for the selected product.</p>")
 
-        elif st.session_state.selected_product == "ebook":
-            st.markdown(
-                "<p>Enter your email to receive a link to download the ebook:</p>",
-                unsafe_allow_html=True,
-            )
-            email = st.text_input("Email:")
-            if st.button("Download Ebook"):
-                if validate_email(email):
-                    st.success(f"Thank you! Check your email for the ebook download link.")
-                    st.session_state.step = 3
-                else:
-                    st.warning("Please enter a valid email address.")
-
-        elif st.session_state.selected_product == "consultation":
-            st.markdown("<p>Choose a suitable time for your consultation:</p>", unsafe_allow_html=True)
-            consultation_time = st.selectbox("Select Time:", ["10:00 AM", "2:00 PM", "4:00 PM"])
-            if st.button("Book Consultation"):
-                st.success(f"Thank you! Your consultation is scheduled for {consultation_time}.")
-                st.session_state.step = 3
+        # A button to go to the next page
+        if st.button("Next Page"):
+            st.session_state.step += 1
 
     elif st.session_state.step == 3:
         st.title("Confirmation")
@@ -163,11 +136,6 @@ def main():
     # Close the container
     st.markdown("</div>", unsafe_allow_html=True)
 
-# Email validation function
-def validate_email(email):
-    return "@" in email and "." in email
-
 # Run the app
 if __name__ == "__main__":
     main()
-
